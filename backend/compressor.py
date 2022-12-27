@@ -45,7 +45,8 @@ def upload_file():
 
             # compresses the image with the resize method
             image.resize((width, height), resample=Image.Resampling.LANCZOS)
-            new_img = f'compressed_image.{image_format}'
+            new_img = filename.split(".")[0] + f'_new.{image_format}'
+            # new_img = f"compressed_image.{image_format}"
 
             # saves the image to the desired location
             image.save(
