@@ -1,6 +1,13 @@
 import Logo from "./../img/logo.png";
+import { Link } from "react-router-dom";
 
 export default function Signup() {
+  //   const [passwordVisibility, setPasswordVisibility] = useState(() => false);
+
+  // const handleVisibility = () => {
+  // 	setPasswordVisibility((prev) => !prev);
+  // };
+
   return (
     <div className="d-md-flex justify-content-between container">
       <div className="signin-left m-5 d-none d-lg-block"></div>
@@ -10,7 +17,7 @@ export default function Signup() {
         </div>
 
         <form className="mt-5">
-        <input
+          <input
             type="name"
             placeholder="Username"
             className="signin-field p-3 my-3"
@@ -30,9 +37,14 @@ export default function Signup() {
             placeholder="Confirm Password"
             className="signin-field p-3 my-3"
           />
-          <button type='submit' className="w-100 p-3 my-3">Submit</button> 
+          <button type="submit" className="w-100 p-3 my-3">
+            Submit
+          </button>
         </form>
-        <p>Don't have an account yet? <a> Sign Up</a></p>
+        <p>
+          Don't have an account yet?
+          <Link to="/signup" className="signUp_link"> Sign Up</Link>
+        </p>
       </div>
     </div>
   );

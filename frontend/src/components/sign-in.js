@@ -1,4 +1,5 @@
 import Logo from "./../img/logo.png";
+import { Link } from "react-router-dom";
 
 export default function Signin() {
   return (
@@ -22,7 +23,10 @@ export default function Signin() {
           />
           <button type='submit' className="w-100 p-3 my-3">Submit</button> 
         </form>
-        <p>Don't have an account yet? <a> Sign Up</a></p>
+        <p>
+          Don't have an account yet?
+          <Link to="/signup" className="signUp_link"> Sign Up</Link>
+        </p>
       </div>
     </div>
   );
