@@ -75,9 +75,9 @@ export default function Navbar() {
 
         </div>
 
-        <button className="btn button-primary bg-black text-white rounded-pill px-5 d-none  d-md-block">
+        <Link to="login" className="btn button-primary bg-black text-white rounded-pill px-5 d-none  d-md-block">
           Sign-in
-        </button>
+        </Link>
 
       </div>
 
@@ -104,9 +104,9 @@ export default function Navbar() {
           </li>
         </ul>
 
-        <button className="btn button-primary bg-black text-white rounded-pill px-5">
+        <Link to="login" className="btn button-primary bg-black text-white rounded-pill px-5">
           Sign-in
-        </button>
+        </Link>
       </div> : ''}
     </div>
   );

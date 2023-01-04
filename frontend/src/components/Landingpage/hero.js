@@ -1,4 +1,5 @@
 import hero from "./../../img/heroimg.png";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -17,9 +18,9 @@ export default function Hero() {
           {/* <h1 className="fs-1">
           Compress Your Images, Fast!
           </h1> */}
-          <button className="btn button-primary bg-black text-white rounded-pill px-4 py-2  mt-5">
+          <Link to="/input" className="btn button-primary bg-black text-white rounded-pill px-4 py-2  mt-5">
             Compress Image
-          </button>
+          </Link>
         </div>
         <div className="hero_img_div m-auto">
           <img src={hero} alt="" className="hero_img" />

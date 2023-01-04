@@ -13,7 +13,8 @@ export default function Signup() {
       <div className="signin-left m-5 d-none d-lg-block"></div>
       <div className="signin-right m-lg-5">
         <div className=" d-flex justify-content-center mb-5">
-          <img src={Logo} alt="" className="logo" />
+          <Link to="/">
+          <img src={Logo} alt="" className="logo" /></Link>
         </div>
 
         <form className="mt-5">
