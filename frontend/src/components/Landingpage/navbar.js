@@ -18,12 +18,13 @@ export default function Navbar() {
         <div style={{
           display: isActive ? "block" : "none",
         }}>
-          <img
-            src={Logo}
-            alt=""
-            className="logo"
-
-          />
+          <Link to="/">
+            <img
+              src={Logo}
+              alt=""
+              className="logo"
+            />
+          </Link>
         </div>
 
 

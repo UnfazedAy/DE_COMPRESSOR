@@ -4,6 +4,7 @@ import Input from "./components/input";
 import Login from "./components/sign-in";
 import Signup from "./components/sign-up";
 import Home from "./components/Landingpage/Home";
+import Four04 from "./components/404";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/input" element={<Input />} />
         <Route path="/" element={<Home />} />
-        {/* <Route path="*" element={<Four404 />} /> */}
+        <Route path="*" element={<Four04 />} />
       </Routes>
     </Router>
   );
