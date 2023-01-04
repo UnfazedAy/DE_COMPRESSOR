@@ -1,10 +1,13 @@
 import Logo from "./../img/logo.png";
+import Img from "./../img/login.jpg";
 import { Link } from "react-router-dom";
 
 export default function Signin() {
   return (
     <div className="d-md-flex justify-content-between container">
-      <div className="signin-left m-5 d-none d-lg-block"></div>
+      <div className="signin-left m-5 d-none d-lg-grid">
+        <img src={Img} alt='' className="left_img"/>
+      </div>
       <div className="signin-right m-lg-5">
         <div className=" d-flex justify-content-center mb-5">
           <Link to="/">
@@ -22,7 +25,7 @@ export default function Signin() {
             placeholder="Password"
             className="signin-field p-3 my-3"
           />
-          <button type='submit' className="w-100 p-3 my-3">Submit</button> 
+          <button type='submit' className="p-3 my-3">Submit</button> 
         </form>
         <p>
           Don't have an account yet?

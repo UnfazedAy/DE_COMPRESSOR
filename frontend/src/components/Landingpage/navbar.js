@@ -1,6 +1,6 @@
 // import Link from 'react'
 import Logo from "./../../img/logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -56,19 +56,19 @@ export default function Navbar() {
 
           <ul className="Nav_1">
             <li>
-              <Link to="/" className="text-decoration-none nav_link" id="nav_link">
+              <NavLink to="/" className="text-decoration-none nav_link" id="nav_link" activeClassName="active">
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/" className="text-decoration-none nav_link" id="nav_link">
+              <NavLink to="/about" className="text-decoration-none nav_link" id="nav_link" activeClassName="active">
                 About
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/" className="text-decoration-none nav_link" id="nav_link">
+              <NavLink to="/contactus" className="text-decoration-none nav_link" id="nav_link" activeClassName="active">
                 Contact Us
-              </Link>
+              </NavLink>
             </li>
           </ul>
 

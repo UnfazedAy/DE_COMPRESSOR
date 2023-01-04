@@ -1,21 +1,48 @@
 import Logo from "./../img/logo.png";
 import { Link } from "react-router-dom";
 
+
 function Sidebar() {
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
+
+
   return (
-    <div className="sidebar_container p-4">
+
+    
+
+
+    
+
+
+
+
+
+
+    
+    
+    
+    
+      
+    
+    <div className="sidebar_container p-4 d-none d-md-block">
+      {/* sidebar menu */}
       <div className="py-5">
         <Link to="/">
         <img src={Logo} alt="" className="logo" />
         </Link>
       </div>
 
-      {/* sidebar menu */}
+
       <div className="side_">
         <ul className="side_">
           <hr />
           <li className="py-2 m-0">
-            <Link to="/" className="side_link ">
+            <Link to="/input" className="side_link"
+            onClick={refreshPage}>
               <ion-icon name="scale-outline"></ion-icon>
               Dashboard
             </Link>
@@ -48,6 +75,7 @@ function Sidebar() {
         </ul>
       </div>
     </div>
+
   );
 }
 

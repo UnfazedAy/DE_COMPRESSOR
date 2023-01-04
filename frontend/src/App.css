@@ -20,6 +20,8 @@ background-color: var(--pry) !important;
 color: black !important;
 padding: 0.7em !important;
 border: solid 0.5px black;
+border: none;
+box-shadow: 0em 0.1em rgb(223, 223, 223);
 }
 
 .nav_bar {
@@ -37,6 +39,7 @@ border: solid 0.5px black;
   align-items: center;
   padding: 1em;
 }
+
 
 .Nav_{
  display: flex;
@@ -66,9 +69,18 @@ align-items: center;
   width: 100%;
 }
 
-.nav_link:hover {
+.nav_link:hover{
   border-bottom: solid 0.1px var(--pry);
-  color: var(--pry2);
+  color: var(--pry2); 
+}
+
+.active {
+  background: var(--pry);
+  padding: 0.2em 1em;
+  border: none;
+  border-radius: 2em;
+  box-shadow: 0em 0.1em rgb(223, 223, 223);
+  transition: 0.3s;
 }
 
 .logo {
@@ -85,6 +97,7 @@ align-items: center;
 justify-content: center;
 width: 50vw;
 max-width: 400px;
+margin: auto;
 }
 
 
@@ -104,6 +117,8 @@ max-width: 400px;
   flex-direction: column;
   color: black;
 }
+
+
 
 .side_link {
   text-decoration: none;
@@ -176,9 +191,13 @@ width: 40%;
   text-decoration: none;
 }
 
+.footer_links  {
+  text-align: center;
+}
+
 .logo1 {
-  width: 30%;
- max-width: 120px;
+  width: 30vw;
+max-width: 120px;
 }
 
 .socials ion-icon {
@@ -217,6 +236,7 @@ li {
   padding: 2em;
 }
 
+
 .input_hide {
   display: none;
 }
@@ -241,13 +261,28 @@ li {
 
 /* preview */
 
+.preview_div {
+  display:grid;
+  place-items: center;
+}
+
+.preview_image {
+  width: 100%;
+  max-width: 500px ;
+  height: auto;
+}
+
 /* Sign-in */
+.left_img {
+  max-width: 100%;
+}
 
 .signin-left {
-  background-color: var(--pry);
-  width: 45vw;
+  /* background-color: var(--pry); */
+  width: 60vw;
   height: 90vh;
   border-radius: 10px;
+  place-items: center;
 }
 
 .signin-right {
@@ -305,6 +340,12 @@ li {
   /* grid-template-columns: 1fr 1fr; */
 }
 
+.card:hover {
+  background-color: var(--pry);
+  color: black;
+ 
+}
+
 @media (min-width: 550px) {
   .card_container {
     grid-template-columns: 1fr 1fr;
@@ -315,6 +356,7 @@ li {
 @media (min-width: 1200px) {
   .card_container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 1em 0;
     /* grid-gap: 100px; */
   }
 }
@@ -329,7 +371,12 @@ li {
   margin-top: 2em;
   display: grid;
   place-items: center;
+  transition: 0.5s;
 }
+
+
+
+
 
 .card ion-icon {
   font-size: 50px;

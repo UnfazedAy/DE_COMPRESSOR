@@ -1,4 +1,5 @@
 import Logo from "./../img/logo.png";
+import Img from "./../img/signup.jpg";
 import { Link } from "react-router-dom";
 
 export default function Signup() {
@@ -10,11 +11,14 @@ export default function Signup() {
 
   return (
     <div className="d-md-flex justify-content-between container">
-      <div className="signin-left m-5 d-none d-lg-block"></div>
+      <div className="signin-left m-5 d-none d-lg-grid">
+        <img src={Img} alt="" className="left_img" />
+      </div>
       <div className="signin-right m-lg-5">
         <div className=" d-flex justify-content-center mb-5">
           <Link to="/">
-          <img src={Logo} alt="" className="logo" /></Link>
+            <img src={Logo} alt="" className="logo" />
+          </Link>
         </div>
 
         <form className="mt-5">
@@ -38,13 +42,16 @@ export default function Signup() {
             placeholder="Confirm Password"
             className="signin-field p-3 my-3"
           />
-          <button type="submit" className="w-100 p-3 my-3">
+          <button type="submit" className=" p-3 my-3">
             Submit
           </button>
         </form>
         <p>
-          Don't have an account yet?
-          <Link to="/signup" className="signUp_link"> Sign Up</Link>
+          Already have an account yet?
+          <Link to="/login" className="signUp_link">
+            {" "}
+            Login
+          </Link>
         </p>
       </div>
     </div>

@@ -1,14 +1,17 @@
 import { useState } from "react";
 import Sidebar from "./sidebar";
-import Preview from "./preview";
+// import Preview from "./preview";
 
 export default function Input() {
   const [selectedImages, setSelectedImages] = useState([]);
-  const [imageToUpload, setImageToUpload] = useState([]);
+  const [preview, setPreview] = useState(false);
+  // const [imageToCompress, setImageToCompress] = useState([]);
+  const [isActive, setIsActive] = useState(true);
+
 
   const handleFile = (e) => {
     let file = e.target.files;
-    console.log(file);
+    //console.log(file);
 
     const selectedFilesArray = Array.from(file);
 
@@ -17,11 +20,12 @@ export default function Input() {
       return URL.createObjectURL(file);
     });
     setSelectedImages((previousImages) => previousImages.concat(imagesArray));
-
-    setImageToUpload((prev) => prev.concat(selectedFilesArray));
+    setPreview((current) => !current);
+    console.log(selectedImages);
+    // setImageToUpload((prev) => prev.concat(selectedFilesArray));
   };
 
-  const [isActive, setIsActive] = useState(true);
+  
 
   const hideHamburger = () => {
     setIsActive((current) => !current);
@@ -72,33 +76,37 @@ export default function Input() {
           </div>
         </div>
         <hr />
-        { selectedImages && 
-        <div>
-          <input
-            type="file"
-            name="file"
-            accept="image/*"
-            id="file"
-            className="input_hide"
-            onChange={handleFile}
-          />
-          <label htmlFor="file" className="input-label">
-            <p className="m-0">Drag and Drop your Image here</p>
-          </label>
-        </div> }
+        {!preview && (
+          <div>
+            <input
+              type="file"
+              name="file"
+              accept="image/*"
+              id="file"
+              className="input_hide"
+              onChange={handleFile}
+            />
+            <label htmlFor="file" className="input-label">
+              <p className="m-0">Drag and Drop your Image here</p>
+            </label>
+          </div>
+        )}
 
-          {selectedImages && selectedImages.map((image, index) => {
+        {selectedImages &&
+          selectedImages.map((image, index) => {
             return (
               <div
                 key={index}
-                className="vic_her_div relative cbk-hover"
-                // onChange={storeItem(image)}
+                className="preview_div"
               >
-                {/* <img src={imgae} className="" /> */}
-</div>
-  );})
-          }
-
+                <img src={image} alt='' className="preview_image" />
+                <button
+                className="btn button-primary bg-black text-white rounded-pill px-4 py-2  mt-5"
+                onChange=''
+                >Compress Image</button>
+              </div>
+            );
+          })}
       </div>
       {/* <Preview
 
