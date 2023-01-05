@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Sidebar from "./sidebar";
+import Nav from "./top_nav";
 // import Preview from "./preview";
 
 export default function Input() {
@@ -7,7 +8,6 @@ export default function Input() {
   const [preview, setPreview] = useState(false);
   // const [imageToCompress, setImageToCompress] = useState([]);
   const [isActive, setIsActive] = useState(true);
-
 
   const handleFile = (e) => {
     let file = e.target.files;
@@ -25,8 +25,6 @@ export default function Input() {
     // setImageToUpload((prev) => prev.concat(selectedFilesArray));
   };
 
-  
-
   const hideHamburger = () => {
     setIsActive((current) => !current);
   };
@@ -34,6 +32,20 @@ export default function Input() {
   const Name = "Victor";
 
   return (
+    <div>
+      {!isActive ? (
+        <div className="d-md-none">
+          <div className="close">
+            <ion-icon
+            name="close-circle-outline"
+            size="large"
+            onClick={hideHamburger}
+          ></ion-icon>
+            </div>
+           
+           <Nav className='' />
+          </div>
+     ) : ("")}
     <div className="input_body">
       {/* create a top navbar for smaller screens, don't use this sidebar */}
       {/* {!isActive ? 
@@ -47,10 +59,8 @@ export default function Input() {
       <Sidebar /> 
       </div>: ''} */}
 
-      <div className="d-none d-md-block">
-        <Sidebar />
-      </div>
-
+     
+ <Sidebar />
       <div className="input_container">
         <div className="d-flex align-items-center justify-content-between">
           <h1 className="m-0">Welcome {Name}</h1>
@@ -95,15 +105,15 @@ export default function Input() {
         {selectedImages &&
           selectedImages.map((image, index) => {
             return (
-              <div
-                key={index}
-                className="preview_div"
-              >
-                <img src={image} alt='' className="preview_image" />
+              <div key={index} className="preview_div">
+                <img src={image} alt="" className="preview_image" />
                 <button
-                className="btn button-primary bg-black text-white rounded-pill px-4 py-2  mt-5"
-                onChange=''
-                >Compress Image</button>
+                  className="btn button-primary bg-black text-white rounded-pill px-4 py-2  mt-5"
+                  id='btnn'
+                  onChange=""
+                >
+                  Compress Image
+                </button>
               </div>
             );
           })}
@@ -111,6 +121,7 @@ export default function Input() {
       {/* <Preview
 
       /> */}
+    </div>
     </div>
   );
 }
