@@ -1,6 +1,6 @@
-from decompressor import application
+from decompressor import app
 
 
 
 if __name__ == "__main__":
-    application.run(debug=True)
+    app.run(debug=True)

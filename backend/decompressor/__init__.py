@@ -7,7 +7,7 @@ from decompressor.config import DevConfig
 from flask_sqlalchemy import SQLAlchemy
 
 
-application = app
+# application = app
 app = Flask(__name__)
 app.config.from_object(DevConfig)
 #db.init_app(app)
