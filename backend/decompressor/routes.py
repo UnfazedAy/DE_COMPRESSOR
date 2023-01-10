@@ -205,9 +205,9 @@ class Compress(Resource):
                 os.path.join(UPLOAD_FOLDER, new_img),
                 optimize=True, quality=40)
 
-            return jsonify(
-             {'message': 'Images uploaded and compressed successfully'})
-            # return redirect(url_for('download_file', filename=new_img))
+            # return jsonify(
+            #  {'message': 'Images uploaded and compressed successfully'})
+            return redirect(url_for('download_file', filename=new_img))
 
 
 @api.route('/api/v1/uploads/<path:filename>')
