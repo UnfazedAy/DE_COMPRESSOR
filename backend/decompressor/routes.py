@@ -38,7 +38,7 @@ app.config['MAX_CONTENT_LENGTH'] = 30 * 1024 * 1024
 
 upload_parser = reqparse.RequestParser()
 upload_parser.add_argument('image', type=FileStorage, location='files',
-                           required=True, action='append')
+                           required=True)
 
 
 api = Api(app, doc='/api/v1/docs')
@@ -205,9 +205,9 @@ class Compress(Resource):
                 os.path.join(UPLOAD_FOLDER, new_img),
                 optimize=True, quality=40)
 
-            return jsonify(
-             {'message': 'Images uploaded and compressed successfully'})
-            # return redirect(url_for('download_file', filename=new_img))
+            # return jsonify(
+            #  {'message': 'Images uploaded and compressed successfully'})
+            return redirect(url_for('download_file', filename=new_img))
 
 
 @api.route('/api/v1/uploads/<path:filename>')
