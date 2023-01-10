@@ -1,10 +1,18 @@
-from decompressor import db
+from decompressor import db, jwt
+
+
+
+# @jwt.user_lookup_loader
+# def user_lookup_callback(_jwt_header, jwt_data):
+#     identity = jwt_data["sub"]
+#     return User.query.filter_by(id=identity).one_or_none()
+
 
 
 class User(db.Model):
     """ User table. should also contain image_file"""
     id = db.Column(db.Integer(), primary_key=True)
-    username = db.Column(db.String(50), nullable = False)
+    name = db.Column(db.String(50), nullable = False)
     email = db.Column(db.String(120), nullable = False, unique=True)
     password = db.Column(db.String(), nullable = False)
     images = db.relationship('Images', backref='user')
@@ -13,7 +21,7 @@ class User(db.Model):
 
     def __repr__(self):
         """ string represenattion of the class User """
-        return f"User({self.username}, {self.email}"
+        return f"User({self.name}, {self.email}"
     
 
     def save(self):
@@ -37,7 +45,7 @@ class User(db.Model):
 
 class Images(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
-    image = db.Column(db.BLOB())
+    image = db.Column(db.LargeBinary)
     imageFilename = db.Column(db.String())
     user_id = db.Column(db.Integer(), db.ForeignKey('user.id'), nullable=False)
 

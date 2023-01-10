@@ -1,7 +1,10 @@
 from decouple import config
 import os
 
-Basedir = os.path.dirname(os.path.realpath(__file__))
+# Basedir = os.path.dirname(os.path.realpath(__file__))
+USERNAME = config('USERNAME')
+PASSWORD = config('PASSWORD')
+DATABASE = config('DATABASE')
 
 class Config:
     SECRET_KEY=config('SECRET_KEY')
@@ -9,9 +12,10 @@ class Config:
 
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI='sqlite:///'+os.path.join(Basedir, 'dev.db')
+    # SQLALCHEMY_DATABASE_URI='postgresql:///'+os.path.join(Basedir, 'dev.db')
+    SQLALCHEMY_DATABASE_URI=f'postgresql://{USERNAME}:{PASSWORD}@localhost:5432/{DATABASE}'
     DEBUG=True
     SQLALCHEMY_ECHO=True
 
 GOOGLE_CLIENT_ID = config('GOOGLE_CLIENTID')
-GOOGLE_CLIENT_SECRET = config('GOOGLE_CLIENT_SECRET')
+GOOGLE_CLIENT_SECRET = config('GOOGLE_CLIENT_SECRET') 
