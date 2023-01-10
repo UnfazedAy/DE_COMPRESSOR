@@ -13,8 +13,7 @@ class Config:
 
 
 class DevConfig(Config):
-    # SQLALCHEMY_DATABASE_URI= 'postgresql://decompressor:PnR7kDKgIROg5CuqirixGNLDSobKnjto@dpg-ceut86ha6gdjl6qkch0g-a/dev_db_gmyt'
-    SQLALCHEMY_DATABASE_URI=f'postgres://{USERNAME}:{PASSWORD}@{HOSTNAME}/{DATABASE}'
+    SQLALCHEMY_DATABASE_URI=f'postgresql://{USERNAME}:{PASSWORD}@{HOSTNAME}/{DATABASE}'
     DEBUG=True
     SQLALCHEMY_ECHO=True
 
