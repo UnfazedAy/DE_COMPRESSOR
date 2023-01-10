@@ -1,5 +1,5 @@
-import Logo from "./../img/logo.png";
-import Img from "./../img/signup.jpg";
+import Logo from "./../img/logo.webp";
+import Img from "./../img/signup.webp";
 import { Link } from "react-router-dom";
 
 export default function Signup() {
@@ -21,7 +21,7 @@ export default function Signup() {
           </Link>
         </div>
 
-        <form className="mt-5">
+        <form className="mt-5" method="POST">
           <input
             type="name"
             placeholder="Username"
@@ -42,12 +42,19 @@ export default function Signup() {
             placeholder="Confirm Password"
             className="signin-field p-3 my-3"
           />
-          <button type="submit" className=" p-3 my-3">
+          <button type="submit" className="buttonn p-3 my-3">
             Submit
+          </button>
+
+          <p className="text-center">OR</p>
+
+          <button type="submit" className="buttonn  p-3 mb-3 d-flex justify-content-center">
+          <ion-icon name="logo-google-playstore" size='large' ></ion-icon>
+            <p className='ps-3 m-0'>Sign in with google</p>
           </button>
         </form>
         <p>
-          Already have an account yet?
+          Already have an account?
           <Link to="/login" className="signUp_link">
             {" "}
             Login

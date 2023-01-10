@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import Sidebar from "./sidebar";
 import Nav from "./top_nav";
 // import Preview from "./preview";
@@ -29,7 +30,12 @@ export default function Input() {
     setIsActive((current) => !current);
   };
 
-  const Name = "Victor";
+
+const compressImage = () => {
+
+}
+
+  const Name = "{Username}";
 
   return (
     <div>
@@ -106,7 +112,10 @@ export default function Input() {
           selectedImages.map((image, index) => {
             return (
               <div key={index} className="preview_div">
-                <img src={image} alt="" className="preview_image" />
+                 <div className="preview_div div">
+                    
+                    <img src={image} alt="" className="preview_image" />
+                    </div>
                 <button
                   className="btn button-primary bg-black text-white rounded-pill px-4 py-2  mt-5"
                   id='btnn'

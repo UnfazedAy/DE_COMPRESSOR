@@ -1,4 +1,4 @@
-import Img from "./../img/404.jpg";
+import Img from "./../img/404.webp";
 // import { Link } from "react-router-dom";
 import Navbar from "./Landingpage/navbar";
 
