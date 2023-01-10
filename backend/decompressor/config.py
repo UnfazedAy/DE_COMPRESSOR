@@ -14,7 +14,7 @@ class Config:
 
 class DevConfig(Config):
     # SQLALCHEMY_DATABASE_URI='postgresql:///'+os.path.join(Basedir, 'dev.db')
-    SQLALCHEMY_DATABASE_URI=f'postgresql://{USERNAME}:{PASSWORD}@{HOSTNAME}:5432/{DATABASE}'
+    SQLALCHEMY_DATABASE_URI=f'postgres://{USERNAME}:{PASSWORD}@{HOSTNAME}:5432/{DATABASE}'
     DEBUG=True
     SQLALCHEMY_ECHO=True
 
