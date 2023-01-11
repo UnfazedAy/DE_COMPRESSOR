@@ -16,7 +16,7 @@ app = Flask(__name__)
 #     with current_app.app_context():
 #         # init_db()
 #         current_app.config.from_object(DevConfig)
-cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
+cors(app)
 
 
     # return current_app
