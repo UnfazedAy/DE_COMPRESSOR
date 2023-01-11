@@ -6,6 +6,7 @@ from flask_migrate import Migrate
 from sqlalchemy import MetaData
 from decompressor.config import DevConfig
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 
 app = Flask(__name__)
@@ -15,6 +16,7 @@ app = Flask(__name__)
 #     with current_app.app_context():
 #         # init_db()
 #         current_app.config.from_object(DevConfig)
+cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 
     # return current_app
