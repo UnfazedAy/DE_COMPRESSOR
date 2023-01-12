@@ -1,14 +1,26 @@
 import os 
 from flask import Flask, request, abort, url_for, redirect, flash, jsonify
+from flask_jwt_extended import JWTManager
 #from flask_jwt_extended import JWTManager, jwt_required
 from flask_migrate import Migrate
 from sqlalchemy import MetaData
 from decompressor.config import DevConfig
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 
-# application = app
 app = Flask(__name__)
+# def create_app():
+#     current_app = Flask(__name__)
+
+#     with current_app.app_context():
+#         # init_db()
+#         current_app.config.from_object(DevConfig)
+CORS(app)
+
+
+    # return current_app
+# app = create_app()
 app.config.from_object(DevConfig)
 #db.init_app(app)
 #os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
@@ -24,6 +36,11 @@ convention = {
 metadata = MetaData(naming_convention=convention)
 db = SQLAlchemy(app, metadata=metadata)
 migrate = Migrate(app, db)
+jwt = JWTManager(app)
+# login_manager = LoginManager(app)
+# login_manager.login_view = 'log_in'
+# login_manager.login_message_category = 'info'
 
 
 from decompressor import routes
+

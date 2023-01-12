@@ -29,3 +29,26 @@
 #             return jsonify(
 #                 {'message': 'Image uploaded and compressed successfully'}
 #             )
+
+
+
+import os
+import pathlib
+
+UPLOAD_FOLDER = './save_images'
+print(pathlib.Path.cwd())
+path = os.getcwd()
+print(os.path.abspath(os.path.join(path, os.pardir)))
+
+# print(os.path.dirname(os.path.abspath('main.py')))
+print(os.path.dirname(UPLOAD_FOLDER))
+print(os.path.dirname(path))
+# desktop = pathlib.Path((os.path.abspath(os.path.join(path, os.pardir)))) + '/save_images/'
+images_location = os.path.dirname(path) + '/save_images/'
+# desktop = pathlib.Path(os.path.dirname(path) + '/temp/')
+desktop = pathlib.Path(images_location)
+for item in desktop.iterdir():
+    print(item)
+
+# print("temp:", desktop)
+# /home/jedda/Desktop/Decompressor/backend/save_images
