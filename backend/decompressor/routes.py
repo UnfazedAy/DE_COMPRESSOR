@@ -147,7 +147,7 @@ class Callback(Resource):
         return redirect('/')
 
 
-@api.route('/api/v1/userfiles')
+@api.route('/api/v1/user')
 class UserFiles(Resource):
     @jwt_required()
     def get(self):
@@ -156,16 +156,7 @@ class UserFiles(Resource):
     def post(self):
         pass
 
-    @jwt_required()
-    def delete(self):
-        data = request.get_json()
-        email = data.get("email")
-        password = data.get("password")
-
-        user_to_delete = User.query.filter_by(email=email).first()
-        user_to_delete.delete()
-
-        return jsonify("Account deleted successfully")
+    
 
 
 @api.route('/api/v1/compress')
@@ -293,12 +284,12 @@ class Compress(Resource):
         )
 
 
-@api.route('/api/v1/user')
+@api.route('/api/v1/userfiles')
 class DownloadFile(Resource):
     """ class for downloading file by a registered user"""
     @jwt_required()
     def get(self):
-        """ function to download multiole files """
+        """ function to download multiple files """
         create_folder(TEMP_FOLDER)
         user = User.query.filter_by(email=get_jwt_identity()).first()
         downloads = Images.query.filter_by(user_id=user.id).all()
@@ -306,8 +297,6 @@ class DownloadFile(Resource):
             download_image = download.image
             download_name = download.imageFilename
             new_img = convertFromBinaryData(download_image, download_name)
-
-            
 
             new_img.save(
                     os.path.join(TEMP_FOLDER, download_name),
@@ -317,14 +306,16 @@ class DownloadFile(Resource):
             {'message': 'Images saved successfully'}
         ) 
 
-        # image_format = allowed_file(filename)
-        # path = os.getcwd()
-        # img_location = os.path.dirname(path) + \
-        #     '/backend/save_images/' + filename
+        @jwt_required()
+        def delete(self):
+            data = request.get_json()
+            email = data.get("email")
+            password = data.get("password")
 
-        # filename = f'{img_location}'
-        # return send_file(filename,
-        #                  mimetype=f'image/image_format', as_attachment=True)
+            user_to_delete = User.query.filter_by(email=email).first()
+            user_to_delete.delete()
+
+            return jsonify("Account deleted successfully")
 
 
 @api.route('/api/v1/forgotpassword')
