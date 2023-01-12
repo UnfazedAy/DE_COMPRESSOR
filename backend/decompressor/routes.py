@@ -220,11 +220,12 @@ class DownloadFile(Resource):
 
         path = os.getcwd()
         # path to compressed image
-        img_location = os.path.dirname(path) + \
-            '/backend/save_images/' + filename
+#         img_location = os.path.dirname(path) + \
+#             '/backend/save_images/' + filename
 
-        filename = f'{img_location}'
-        return send_file(filename) #   mimetype=f'image/image_format', as_attachment=True)
+#         filename = f'{img_location}'
+        filenam = UPLOAD_FOLDER + filename
+        return send_file(filenam) #   mimetype=f'image/image_format', as_attachment=True)
 
     def delete(self, filename):
         pass
