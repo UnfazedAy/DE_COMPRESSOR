@@ -224,8 +224,7 @@ class DownloadFile(Resource):
             '/backend/save_images/' + filename
 
         filename = f'{img_location}'
-        return send_file(filename,
-                         mimetype=f'image/image_format', as_attachment=True)
+        return send_file(filename) #   mimetype=f'image/image_format', as_attachment=True)
 
     def delete(self, filename):
         pass
