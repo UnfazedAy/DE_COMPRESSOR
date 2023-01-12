@@ -13,7 +13,6 @@ Welcome to our image compression website! This website allows you to easily comp
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 - [Contribute](#contribute)
-- (Support)(#support)
 - [License](#license)
 
 ## Overview
