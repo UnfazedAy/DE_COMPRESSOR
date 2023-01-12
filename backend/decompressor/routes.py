@@ -218,22 +218,9 @@ class DownloadFile(Resource):
             encoded_string = base64.b64encode(image_file.read())
         
         return {"image": encoded_string, "data": jsonify(return_list)}
-        # res = requests.get(path, stream=True)
-        # return Response(res.content, headers = dict(res.headers)) #send_file(path, as_attachment=True)
-        #return send_from_directory(UPLOAD_FOLDER, filename=filename, as_attachment=True)
-        # return make_response(download)
-
-        # response = requests.get(path)
-        # return response
-
-        #return send_file(filename=path, mimetype=f'image/{image_format}', as_attachment=True)
-
-        #path = utils.get_save_path(filename)
-        #return send_from_directory(*os.path.
 
 
-
-@api.route('/api/v1/multipletesting')
+@api.route('/api/v1/multiplecompress')
 class Compress(Resource):
 
     @api.expect(upload_parser)
@@ -275,10 +262,21 @@ class Compress(Resource):
 
             # return redirect(url_for('DownloadFile', filename=filename))
         return jsonify(
-            {'message': 'Images uploaded and compressed successfully'}
-        )
+            {'message': 'Images uploaded and compressed successfully'})
         
+    @jwt_required()
+    def delete(self):
 
+        # getting email of logged in user
+        user = User.query.filter_by(email=get_jwt_identity()).first()
+        
+        if user:
+            # deleting user from database
+            user.delete()
+            return jsonify("Account deleted successfully")
+        
+        return jsonify("Account not found")
+        
 
 @api.route('/api/v1/forgotpassword')
 class ForgotPassword(Resource):
