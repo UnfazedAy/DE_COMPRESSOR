@@ -193,6 +193,7 @@ class Compress(Resource):
 class DownloadFile(Resource):
     """to download compressed image"""
 
+    path = os.getcwd()
     img_location = os.path.dirname(path) + \
             '/backend/save_images/'
     def get(self, filename):
@@ -200,7 +201,7 @@ class DownloadFile(Resource):
         # splitting the filename to get the image format
         image_format = allowed_file(filename)
 
-        path = os.getcwd()
+       
         # path to compressed image
         
         filename = f'{DownloadFile.img_location + filename}'
