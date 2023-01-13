@@ -195,6 +195,7 @@ class DownloadFile(Resource):
     """to download compressed image"""
 
     path = os.getcwd()
+    create_folder(UPLOAD_FOLDER)
     img_location = os.path.dirname(path) + \
             '/backend/save_images/'
     def get(self, filename):
