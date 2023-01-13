@@ -15,7 +15,7 @@ class User(db.Model):
     name = db.Column(db.String(50), nullable = False)
     email = db.Column(db.String(120), nullable = False, unique=True)
     password = db.Column(db.String(), nullable = False)
-    images = db.relationship('Images', backref='user')
+    images = db.relationship('Images', backref='user', cascade='all, delete-orphan')
 
 
 
