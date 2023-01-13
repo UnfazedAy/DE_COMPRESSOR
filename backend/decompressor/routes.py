@@ -18,7 +18,7 @@ from flask_migrate import Migrate
 from decompressor.config import GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET
 import psycopg2
 from decompressor.functions import remove_folder, convertToBinaryData, create_folder
-from decompressor.functions import remove_file, create_file
+from decompressor.functions import remove_file, create_file, zip_images
 from decompressor.functions import convertFromBinaryData
 # from oauthlib.oauth2 import WebApplicationClient
 # from authlib.integrations.flask_client import OAuth
