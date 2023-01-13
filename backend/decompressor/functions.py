@@ -5,6 +5,7 @@ import time
 from datetime import datetime, timedelta
 from pathlib import Path
 from PIL import Image
+import zipfile
 
 
 
@@ -40,6 +41,12 @@ def remove_folder(path):
         return(e)
 
 
+def create_file(new_file):
+    if not os.path.exists(new_file):
+        create = Path(new_file)
+        create.touch()
+
+
 def remove_file(path):
 
 	# removing the file
@@ -49,6 +56,25 @@ def remove_file(path):
     except Exception as e:
         return(e)
 
+
+
+
+def zip_images(zip_file, files_to_zip):
+    # Create a zip file which we will write files to
+    # zip_file = "/home/username/test.zip"
+    zipf = zipfile.ZipFile(zip_file, 'w', zipfile.ZIP_DEFLATED)
+
+    # 2. Write files found in "/home/username/files/" to the test.zip
+    # files_to_zip = "/home/username/files/"
+    for file_to_zip in os.listdir(files_to_zip):
+
+        file_to_zip_full_path = os.path.join(files_to_zip, file_to_zip)
+
+        # arcname argument specifies what will be the name of the file inside the zipfile
+        zipf.write(filename=file_to_zip_full_path, arcname=file_to_zip)
+
+    zipf.close()
+    return zipf
 
 
     

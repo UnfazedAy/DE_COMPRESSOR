@@ -18,6 +18,7 @@ from flask_migrate import Migrate
 from decompressor.config import GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET
 import psycopg2
 from decompressor.functions import remove_folder, convertToBinaryData, create_folder
+from decompressor.functions import remove_file, create_file
 from decompressor.functions import convertFromBinaryData
 # from oauthlib.oauth2 import WebApplicationClient
 # from authlib.integrations.flask_client import OAuth
@@ -204,16 +205,18 @@ class DownloadFile(Resource):
        
         # path to compressed image
         
-        filename = f'{DownloadFile.img_location + filename}'
+        filename = f'{self.img_location + filename}'
         # filenam = UPLOAD_FOLDER + filename
         return send_file(filename, mimetype=f'image/image_format', as_attachment=True)
 
     def delete(self, filename):
         """delete compressed file from upload folder"""
-        filename = f'{DownloadFile.img_location + filename}'
-        remove_file(filename)
+        if filename:
+            filename = f'{self.img_location + filename}'
+            remove_file(filename)
 
-        return jsonify("Image removed successfully")
+            return jsonify("Image removed successfully")
+        return jsonify(f"{filename} not found")
 
 
 
@@ -272,7 +275,7 @@ class Compress(Resource):
 
         db.session.commit()
         # delete temp folder where images was stored temporarily
-        # remove_folder(images_location)
+        remove_folder(images_location)
 
         return jsonify(
             {'message': 'Images uploaded and compressed successfully'}
@@ -298,10 +301,16 @@ class DownloadFile(Resource):
             new_img.save(
                     os.path.join(TEMP_FOLDER, download_name),
                     optimize=True, quality=50)
-    
-        return jsonify(
-            {'message': 'Images saved successfully'}
-        ) 
+        compressed_files = io.BytesIO()
+        zipped = zip_images(compressed_files, TEMP_FOLDER)
+        # memory_file = io.BytesIO()
+        # memory_file.seek(0
+        compressed_files.seek(0)
+
+        return send_file(compressed_files, download_name='compressed_files.zip', mimetype="application/zip", as_attachment=True)
+        # return jsonify(
+        #     {'message': 'Images saved successfully'}
+        # ) 
 
     @jwt_required()
     def delete(self):
