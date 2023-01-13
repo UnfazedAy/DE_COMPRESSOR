@@ -147,27 +147,6 @@ class Callback(Resource):
         return redirect('/')
 
 
-@api.route('/api/v1/userfiles')
-class UserFiles(Resource):
-    @jwt_required()
-    def get(self):
-        return {"message": "Dashboard"}
-
-    def post(self):
-        pass
-
-    @jwt_required()
-    def delete(self):
-        data = request.get_json()
-        email = data.get("email")
-        password = data.get("password")
-
-        user_to_delete = User.query.filter_by(email=email).first()
-        user_to_delete.delete()
-
-        return jsonify("Account deleted successfully")
-
-
 @api.route('/api/v1/compress')
 class Compress(Resource):
     @api.expect(upload_parser)
@@ -213,6 +192,9 @@ class Compress(Resource):
 @api.route('/api/v1/uploads/<path:filename>')
 class DownloadFile(Resource):
     """to download compressed image"""
+
+    img_location = os.path.dirname(path) + \
+            '/backend/save_images/'
     def get(self, filename):
         """ get function to download compressed image """
         # splitting the filename to get the image format
@@ -220,15 +202,18 @@ class DownloadFile(Resource):
 
         path = os.getcwd()
         # path to compressed image
-#         img_location = os.path.dirname(path) + \
-#             '/backend/save_images/' + filename
-
-#         filename = f'{img_location}'
-        filenam = UPLOAD_FOLDER + filename
-        return send_file(filenam) #   mimetype=f'image/image_format', as_attachment=True)
+        
+        filename = f'{DownloadFile.img_location + filename}'
+        # filenam = UPLOAD_FOLDER + filename
+        return send_file(filename, mimetype=f'image/image_format', as_attachment=True)
 
     def delete(self, filename):
-        pass
+        """delete compressed file from upload folder"""
+        filename = f'{DownloadFile.img_location + filename}'
+        remove_file(filename)
+
+        return jsonify("Image removed successfully")
+
 
 
 @api.route('/api/v1/multiplecompress')
@@ -293,7 +278,7 @@ class Compress(Resource):
         )
 
 
-@api.route('/api/v1/user')
+@api.route('/api/v1/dashboard')
 class DownloadFile(Resource):
     """ class for downloading file by a registered user"""
     @jwt_required()
@@ -317,14 +302,17 @@ class DownloadFile(Resource):
             {'message': 'Images saved successfully'}
         ) 
 
-        # image_format = allowed_file(filename)
-        # path = os.getcwd()
-        # img_location = os.path.dirname(path) + \
-        #     '/backend/save_images/' + filename
-
-        # filename = f'{img_location}'
-        # return send_file(filename,
-        #                  mimetype=f'image/image_format', as_attachment=True)
+    @jwt_required()
+    def delete(self):
+        # getting email of logged in user
+        user = User.query.filter_by(email=get_jwt_identity()).first()
+        
+        if user:
+            # deleting user from database
+            user.delete()
+            return jsonify("Account deleted successfully")
+        
+        return jsonify("Account not found")
 
 
 @api.route('/api/v1/forgotpassword')
