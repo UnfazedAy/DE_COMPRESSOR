@@ -79,6 +79,16 @@ export default function Navbar() {
                 Contact Us
               </NavLink>
             </li>
+             <li>
+            <NavLink
+              to="/login"
+              className="text-decoration-none nav_link"
+              id="nav_link"
+              activeClassName="active"
+            >
+              Dashboard
+            </NavLink>
+           </li>
           </ul>
         </div>
 
@@ -115,6 +125,16 @@ export default function Navbar() {
                 Contact Us
               </Link>
             </li>
+            <li>
+            <Link
+              to="/login"
+              className="text-decoration-none nav_link"
+              id="nav_link"
+              activeClassName="active"
+            >
+              Dashboard
+            </Link>
+           </li>
           </ul>
 
           <Link
@@ -124,6 +144,7 @@ export default function Navbar() {
           >
             Sign-in
           </Link>
+
         </div>
       ) : (
         ""

@@ -69,7 +69,7 @@ const compressImage = () => {
  <Sidebar />
       <div className="input_container">
         <div className="d-flex align-items-center justify-content-between">
-          <h1 className="m-0">Welcome {Name}</h1>
+          <h1 className="m-0">Welcome </h1>
 
           <div className="navbar navbar-dark d-grid d-md-none">
             {/* <div className="container"> */}

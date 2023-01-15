@@ -8,7 +8,7 @@ import Ay from "./../img/ay.webp";
 
 function About() {
   return (
-    <div>
+    <div className="aboutt">
       <Navbar />
       <div className="about_div">
         <div className="div">
@@ -108,17 +108,17 @@ function About() {
               />
               <h4>Fatihah Oduwole</h4>
               <div className="socials">
-                <a href="" target='_blank'>
+                <a href="mailto:fathiato@gmail.com" target='_blank'>
                   <ion-icon name="mail-outline" className="icon"></ion-icon>
                 </a>
-                <a href="" target='_blank'>
+                <a href="https://www.linkedin.com/in/fatihahoduwole/" target='_blank'>
                   <ion-icon name="logo-linkedin" className="icon"></ion-icon>
                 </a>
                 <a href="" target='_blank'>
                   <ion-icon name="logo-twitter" className="icon"></ion-icon>
                 </a>
-                <a href="" target='_blank'>
-                  <ion-icon name="logo-instagram" className="icon"></ion-icon>
+                <a href="https://github.com/Jeddaa" target='_blank'>
+                  <ion-icon name="logo-github" className="icon"></ion-icon>
                 </a>
               </div>
             </div>
@@ -139,12 +139,13 @@ function About() {
                 <a href="https://www.linkedin.com/in/nwosu-victor/" target='_blank'>
                   <ion-icon name="logo-linkedin" className="icon"></ion-icon>
                 </a>
-                <a href="https://www.linkedin.com/in/nwosu-victor/" target='_blank'>
+                <a href="https://twitter.com/__chi__mo__" target='_blank'>
                   <ion-icon name="logo-twitter" className="icon"></ion-icon>
                 </a>
-                <a href="https://www.instagram.com/iamlongvic/" target='_blank'>
-                  <ion-icon name="logo-instagram" className="icon"></ion-icon>
+                <a href="https://github.com/vicNW" target='_blank'>
+                  <ion-icon name="logo-github" className="icon"></ion-icon>
                 </a>
+               
               </div>
             </div>
           </div>
@@ -167,8 +168,8 @@ function About() {
                 <a href="https://twitter.com/SoniyiAyomide_?t=tteA9SCa6-iCUr6XVztPCg&s=09" target='_blank'>
                   <ion-icon name="logo-twitter" className="icon"></ion-icon>
                 </a>
-                <a href="" target='_blank'>
-                  <ion-icon name="logo-instagram" className="icon"></ion-icon>
+                <a href="https://github.com/UnfazedAy" target='_blank'>
+                  <ion-icon name="logo-github" className="icon"></ion-icon>
                 </a>
               </div>
             </div>

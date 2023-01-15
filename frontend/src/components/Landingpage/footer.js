@@ -34,6 +34,7 @@ export default function Footer() {
               <li>Contact Us</li>
             </Link>
           </ul>
+          <hr />
           <p className="">© 2023 Ayo Jedda Vic </p>
         </div>
       </div>
