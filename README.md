@@ -65,7 +65,7 @@ This Project and webapp is made possible and written by:
 
 ## Acknowledgments
 
-I would like to express my deepest gratitude to my mentors, Nehemiah Kamolu, Charles Osoti, Marteens and other [ALX](https://www.alxafrica.com) mentors, for their invaluable guidance, support, and encouragement throughout the course of this project. Their insights and expertise were essential in helping the myself and team navigate through our challenges and all, and I am forever grateful for the time and energy they invested in me.
+I would like to express my deepest gratitude to my mentors, Nehemiah Kamolu, Charles Osoti, Marteens and other [ALX](https://www.alxafrica.com) mentors, for their invaluable guidance, support, and encouragement throughout the course of this project. Their insights and expertise were essential in helping myself and the team navigate through our challenges and all, and I am forever grateful for the time and energy they invested in me.
 
 I would also like to thank my team members Nwosu Victor and Fatihah Oduwole(Jedda) for their hard work, dedication, and valuable contributions to this project. Their creativity and enthusiasm were a constant source of inspiration and motivation for me and success of this project, and I am grateful for the opportunity to have worked alongside such talented individuals.
 
